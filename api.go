@@ -95,7 +95,7 @@ func RecentBuildsFor(token, username, project string, limit, offset int, filter 
 }
 
 
-func GetBuildForProjectAndBranch(token, username, project, branch string, buildNumber int) (*[]interface{}, error) {
+func GetBuildForProjectAndBranch(token, username, project, branch string, buildNumber int) (*map[string]interface{}, error) {
 	req := gorequest.New().Get(BASE_URL + "project/" + username + "/" + project + "/" + strconv.Itoa(buildNumber));
 	// query struct for the api call
 	body, err := makeCallWithRequest(req, token)
