@@ -94,6 +94,17 @@ func RecentBuildsFor(token, username, project string, limit, offset int, filter 
 	return marshalJSONArray(body)
 }
 
+
+func GetBuildForProjectAndBranch(token, username, project, branch string, buildNumber int) (*[]interface{}, error) {
+	req := gorequest.New().Get(BASE_URL + "project/" + username + "/" + project + "/" + strconv.Itoa(buildNumber));
+	// query struct for the api call
+	body, err := makeCallWithRequest(req, token)
+	if err != nil {
+		return nil, err
+	}
+	return marshalJSONObject(body)
+}
+
 //GET: /project/:username/:project/tree/:branch
 //Build summary for each of the last 30 builds for a single git repo.
 func RecentBuildsForBranch(token, username, project, branch string, limit, offset int, filter string) (*[]interface{}, error) {
