@@ -1,4 +1,4 @@
-package main
+package circleci
 import (
 	"testing"
 	"log"
@@ -9,8 +9,7 @@ var circle_ci_token = os.Getenv("circle_ci_token")
 
 // Testcase for Me API
 func TestMe(t *testing.T) {
-	setToken(circle_ci_token)
-	user, err := Me()
+	user, err := Me(circle_ci_token)
 	if err != nil {
 		t.Error(err)
 	}
@@ -19,8 +18,7 @@ func TestMe(t *testing.T) {
 
 // Testcase for Me API
 func TestProjects(t *testing.T) {
-	setToken(circle_ci_token)
-	projects, err := Projects()
+	projects, err := Projects(circle_ci_token)
 	if err != nil {
 		t.Error(err)
 	}
@@ -29,8 +27,7 @@ func TestProjects(t *testing.T) {
 
 // Testcase for getting latest build for
 func TestRecentBuildsFor(t *testing.T) {
-	setToken(circle_ci_token)
-	builds, err := RecentBuildsFor("betacraft", "droidcloud", 1, 0, "succesfull")
+	builds, err := RecentBuildsFor(circle_ci_token, "betacraft", "droidcloud", 1, 0, "succesfull")
 	if err != nil {
 		t.Error(err)
 	}
@@ -40,8 +37,7 @@ func TestRecentBuildsFor(t *testing.T) {
 
 // Testcase for getting artifacts of a given build for a project
 func TestGetArtifactsOfBuildNoForProject(t *testing.T) {
-	setToken(circle_ci_token)
-	artifacts, err := GetArtifactsOfBuildNoForProject("betacraft", "droidcloud", 68)
+	artifacts, err := GetArtifactsOfBuildNoForProject(circle_ci_token, "betacraft", "droidcloud", 68)
 	if err != nil {
 		t.Error(err)
 	}
