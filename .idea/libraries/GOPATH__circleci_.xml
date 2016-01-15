@@ -87,6 +87,7 @@
       <root url="file://$PROJECT_DIR$/../../../google.golang.org/grpc/transport/testdata" />
       <root url="file://$PROJECT_DIR$/../droidcloud/.git" />
       <root url="file://$PROJECT_DIR$/../../mitchellh/gox/.git" />
+      <root url="file://$PROJECT_DIR$/.git" />
       <root url="file://$PROJECT_DIR$/../../codegangsta/cli/.git" />
       <root url="file://$PROJECT_DIR$/../../mitchellh/iochan/.git" />
     </excluded>
